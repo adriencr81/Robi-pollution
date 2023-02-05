@@ -1,0 +1,19 @@
+{
+  "name": "robi-pollution",
+  "version": "1.0.0",
+  "description": "Robot de collecte de données de pollution par le biais d'appels PAI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adriencr81/Robi-pollution.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adriencr81/Robi-pollution/issues"
+  },
+  "homepage": "https://github.com/adriencr81/Robi-pollution#readme"
+}
