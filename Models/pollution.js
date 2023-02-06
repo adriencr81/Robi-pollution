@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 
-const weatherSchema = new mongoose.Schema({
+const pollutionSchema = new mongoose.Schema({
   city: String,
-  temperature: Number,
-  wind: Number,
-  weather: String,
+  pm10: Object,
+  aqi: Object,
   date : Date,
   
 });
 
-const Weather = mongoose.model('Pollution', pollutionSchema);
+const Pollution = mongoose.model('Pollution', pollutionSchema);
 
 module.exports = Pollution;

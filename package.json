@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/adriencr81/Robi-pollution/issues"
   },
-  "homepage": "https://github.com/adriencr81/Robi-pollution#readme"
+  "homepage": "https://github.com/adriencr81/Robi-pollution#readme",
+  "dependencies": {
+    "axios": "^1.3.2",
+    "dotenv": "^16.0.3",
+    "mongoose": "^6.9.0"
+  }
 }

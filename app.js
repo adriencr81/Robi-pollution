@@ -7,7 +7,7 @@ const db = require('./database');
 
 const apiKey = process.env.API_KEY;
 const cities = [
-  { insee: '81004', name: 'Albi' },
+  {  name: 'Albi' },
  // { insee: '35238', name: 'Cherbourg' },
  // { insee: '35238', name: 'Rouen' },
  // { insee: '35238', name: 'Amiens' },
@@ -44,21 +44,20 @@ const cities = [
   { insee: '31555', name: 'Toulouse' }
 ];
 
-async function fetchWeather(name) {
+async function fetchPollution(name) {
   const url = `https://api.waqi.info/feed/${name}/?token=${apiKey}`;
 
   try {
     const response = await axios.get(url);
     const pollutionData = new Pollution({
       city: name,
-      temperature: response.data.forecast.temp2m,
-      wind: response.data.forecast.wind10m,
-      date: response.data.forecast.datetime,
-      probarain: response.data.forecast.probarain,
-      weather: response.data.forecast.weather
+      aqi: response.data.data.iaqi,
+      date: response.data.data.time.s,
+      pm10: response.data.data.iaqi.pm10
+      
     });
-    await weatherData.save();
-    console.log(`Weather data for ${name} saved successfully.`);
+    await pollutionData.save();
+    console.log(`Pollution data for ${name} saved successfully.`);
   } catch (error) {
     console.error(error);
   }
@@ -67,7 +66,7 @@ async function fetchWeather(name) {
 (async () => {
   await db.connect();
   for (const city of cities) {
-    await fetchWeather(city.insee, city.name);
+    await fetchPollution(city.name);
   }
   db.connect();
 })();
